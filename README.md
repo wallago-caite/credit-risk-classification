@@ -7,7 +7,7 @@ Module20
 - Financial data points(variable inputs) evaluated in the credit risk model were loan size, interest rate, borrow income, debt-to-income ratio, number of accounts, number of derogatory marks, and the total debt.
 - The variables we were trying to describe were low- and high- risk loans.  We have over 18 thousand instances of low-risk loans, and only just over 600 instances of low risk loans.  This shows that the dataset is imbalanced and could skew to favor of making false-positive low-risk loans in a way that would not necessarily be caught by the model.  
 
-## What is the proces of ML we went through?
+## What is the process of ML we went through?
 - Put simply, the ML process splits data into testing and training data sets, trains on the the training set and then tests on the testing set. Testing evaluates performance so that metrics can be reevaluated and the model optimized. 
 1. We first read the data into a dataframe, segregating the x and y variables into their own sets using pandas techniques.    2. Then we split the data into training and testing data sets using train_test_split from sklearn.
 3. Then we create a logistics regression model using sklearn LogisticRegression, and fit this model to our training data sets x_train, y_train split out from train_test_split.
