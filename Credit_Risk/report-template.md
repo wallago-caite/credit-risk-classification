@@ -24,20 +24,43 @@ In this section, describe the analysis you completed for the machine learning mo
 
 Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
 
-* Machine Learning Model 1:
-* Description of Model 1 Accuracy, Precision, and Recall scores.
-- Accuracy
-- Precision
-- Recall
+* Machine Learning Model 1 (logistic regression):
+- Accuracy - 
+    - .99 
+- Precision - 
+    - 1 on low-risk loans 
+    - .85 on high-risk loans
+- Recall - 
+    - .99 on low-risk loans
+    - .91 on high-risk loans
 
+* Machine Learning Model 2 (logistic regression with SMOTE to resampling):
+- Accuracy - 
+    - High- .99 
+- Precision - 
+    - 1 on low-risk loans 
+    - .85 on high-risk loans
+- Recall - 
+    - .99 on low-risk loans
+    - 1 on high-risk loans
 
-
+* Machine Learning Model 3 (logistic regression with gridsearch hyperparameter tuning):
+- Accuracy - 
+    - High- .99 
+- Precision - 
+    - 1 on low-risk loans 
+    - .85 on high-risk loans
+- Recall - 
+    - .99 on low-risk loans
+    - 1 on high-risk loans
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. 
 
 * Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+Resampling /balancing this dataset does allow the model to perform better.  Therefore SMOTE resampling would be recommended.  Essentially we have a lot of low-risk loans and not as many high-risk loans. This leads to each high-risk loan having a relatively high weight in the sampling set, underfitting the dataset.  
 
-If you do not recommend any of the models, please justify your reasoning.
+ Performance does depend on the problem we are trying to solve.  In this instance, by forcing this model to perform better by resampling,  we get more false positive identification of "true low-risk loans."  There are more loans that could default identified and positive low-risk.   This leaves the loan-issuer at higher risk of providing capital to applicants that otherwise would be rejected. 
+
+ It might be good to have a "hybrid" style model, where this more accurate system is used for loans under $30k and then any loan over that amount would be skewed in favor of rejection, thus limiting the loan-issuer's exposure.  
